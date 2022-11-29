@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>StopWatch</title>
+    <link rel="stylesheet" href="./style/index.css">
+</head>
+<body>
+    <div class="container">
+        <div class="timer">
+            <div class="timer_block">
+                <div class="time hour">00</div>
+                <div class="title">Hours</div>
+            </div>
+            <div class="timer_block">
+                <div class="time minute">00</div>
+                <div class="title">Minutes</div>
+            </div>
+            <div class="timer_block">
+                <div class="time second">00</div>
+                <div class="title">Seconds</div>
+            </div>
+            <div class="timer_block">
+                <div class="time millisecond">00</div>
+                <div class="title">Milliseconds</div>
+            </div>
+        </div>
+        <div class="buttons">
+            <button class="button start">Start</button>
+            <button class="button stop">Stop</button>
+            <button class="button reset">Reset</button>
+            <button class="button lap" disabled>Lap</button>
+        </div>
+        <div class="result-block">
+            <div class="result-head">Lap scores</div>
+            <div class="results"></div>
+
+        </div>
+        <button class="clear">Clear Laps</button>
+    </div>
+
+    <script src="./src/index.js" type="module"></script>
+</body>
+</html>

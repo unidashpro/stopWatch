@@ -1,0 +1,112 @@
+@import "./_reset.scss";
+
+$main-color: #0e3b8c;
+$main-color2: #7598e1;
+$main-white: #e7e7e7;
+
+body {
+  width: 100vw;
+  height: 100vh;
+  font-family: "Arial", sans-serif;
+  overflow: hidden;
+}
+
+.container {
+  width: 900px;
+  height: 80%;
+  margin: 100px auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 50px;
+}
+
+.timer {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+    &_block {
+      width: 150px;
+      border-bottom-left-radius: 10px;
+      border-bottom-right-radius: 10px;
+      background-color: $main-color;
+      color: $main-white;
+
+      .time {
+        font-size: 75px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .title {
+        background-color: $main-color2;
+        text-align: center;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+      }
+    }
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+}
+
+.button {
+  width: 150px;
+  font-size: 22px;
+  padding: 8px 25px;
+  border-radius: 5px;
+  background-color: $main-color;
+  color: $main-white;
+  cursor: pointer;
+  border: 0px;
+  &:hover {
+    background-color: $main-color2;
+  }
+}
+
+.lap:disabled {
+  background-color: $main-color2;
+  cursor: default;
+}
+
+.result-block {
+  width: 250px;
+  border: 2px solid $main-color;
+  font-size: 18px;
+  text-align: center;
+  padding: 10px;
+  max-height: 460px;
+  overflow: auto;
+  position: relative;
+
+  .result-head {
+    width: 100%;
+    border: 2px solid $main-color;
+  }
+  .results {
+    padding: 10px;
+    font-weight: 700;
+    .result {
+      padding: 5px;
+    }
+  }
+}
+
+.clear {
+  border: 0;
+  background-color: $main-color2;
+  font-size: 14px;
+  border-radius: 4px;
+  padding: 3px;
+  cursor: pointer;
+  color: $main-white;
+   &:hover {
+     background-color: $main-color;
+   }
+}
