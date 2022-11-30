@@ -5,6 +5,7 @@ let minute = 0;
 let second = 0;
 let millisecond = 0;
 let counter = 1;
+const resArr = [];
 
 startBtn.addEventListener('click', () => {
     clearTimeout(timeout);
@@ -69,16 +70,37 @@ function showTime() {
     }
 }
 
+function resetResults() {
+    resultSpot.innerHTML = '';
+    resArr.length = 0;
+    counter = 1;
+}
+
 function showLap() {
     const lapScore = document.createElement('div');
     lapScore.classList.add('result');
-    lapScore.textContent =
-        `Lap ${counter}: ` + formatTime(hour, hourSpot) + ':' + formatTime(minute, minuteSpot) + ':' + formatTime(second, secondSpot) + ':' + formatTime(millisecond, millisecondSpot);
+    resArr.push(formatTime(hour, hourSpot) + ':' + formatTime(minute, minuteSpot) + ':' + formatTime(second, secondSpot) + ':' + formatTime(millisecond, millisecondSpot));
+    lapScore.textContent = `Lap ${counter}: ` + resArr[counter - 1];
     resultSpot.append(lapScore);
     counter++;
+    const res = compareLaps();
+    const laps = resultSpot.children;
+
+    for (let i = 0; i < laps.length; i++) {
+        laps[i].style.color = 'black';
+        if (i === res.max) laps[i].style.color = 'red';
+        if (i === res.min) laps[i].style.color = 'green';
+    }
 }
 
-function resetResults() {
-    resultSpot.innerHTML = '';
-    counter = 1;
+function compareLaps() {
+    let minTime = resArr[0];
+    let maxTime = resArr[0];
+    resArr.forEach(value => {
+        minTime = minTime > value ? value : minTime;
+        maxTime = maxTime > value ? maxTime : value;
+    });
+    const min = resArr.indexOf(minTime);
+    const max = resArr.indexOf(maxTime);
+    return { min, max };
 }
